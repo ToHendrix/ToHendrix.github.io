@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Page</title>
+    <title>Hello Tom</title>
 </head>
 <body>
-    <h1>Welcome to the Index Page</h1>
+    <h1>Welcome to My Website</h1>
+    <p id="greeting"></p>
 
-    <!-- Link to load the script from location.html -->
-    <script src="location.html"></script>
+    <script>
+        // This will print "Hello Tom" on the page
+        document.getElementById("greeting").innerText = "Hello Tom";
+    </script>
 </body>
 </html>
