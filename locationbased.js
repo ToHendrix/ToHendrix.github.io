@@ -45,7 +45,7 @@ function checkLocation() {
                 } else {
                     answerField.disabled = true;
                     locationMessage.textContent =
-                        "You are not at the correct location. Please move closer.";
+                        'You are not at the correct location. Please move closer. Your current location: Latitude: ${userLat.toFixed(6)}, Longitude: ${userLon.toFixed(6)}';
                 }
             },
             (error) => {
