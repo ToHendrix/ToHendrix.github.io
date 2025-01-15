@@ -1,7 +1,10 @@
 // Configuration
-const targetLocation = { lat: 51.5074, lon: -0.1278 }; // Replace with your desired latitude and longitude
+const targetLocation = { lat: 51.2843343, lon: 6.0965782 }; // Replace with your desired latitude and longitude my house: ,6.0965782
 const allowedRadius = 0.02; // Radius in kilometers (50 meters)
 const correctAnswer = "Tom"; // Replace with your desired answer
+// const correctAnswer2 = "Tom"; // Replace with your desired answer
+// const correctAnswer3 = "Tom"; // Replace with your desired answer
+// const correctAnswer4 = "Tom"; // Replace with your desired answer
 
 // Utility: Calculate distance between two coordinates (Haversine formula)
 function getDistance(lat1, lon1, lat2, lon2) {
@@ -62,8 +65,18 @@ function checkAnswer(event) {
     const userAnswer = document.getElementById("answerField").value.trim();
 
     if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-        window.location.href = "success.html"; // Replace with your success page
-    } else {
+        window.location.href = "successHobbits1.html"; // Replace with your success page
+    }
+    // else if (userAnswer.toLowerCase() === correctAnswer2.toLowerCase()) {
+    //     window.location.href = "successHobbits2.html"; // Replace with your success page
+    // }
+    // else if (userAnswer.toLowerCase() === correctAnswer3.toLowerCase()) {
+    //     window.location.href = "successElves1.html"; // Replace with your success page
+    // } 
+    // else if (userAnswer.toLowerCase() === correctAnswer4.toLowerCase()) {
+    //     window.location.href = "successElves2.html"; // Replace with your success page
+    // } 
+    else {
         alert("Incorrect answer. Try again.");
     }
 }
