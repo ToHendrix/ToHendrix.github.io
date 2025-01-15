@@ -1,5 +1,5 @@
 // Configuration
-const targetLocation = { lat: 51.2917504, lon: 6.0981248}; // Replace with your desired latitude and longitude my house: ,6.0965782
+const targetLocation = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house: ,6.0965782
 const allowedRadius = 0.05; // Radius in kilometers (50 meters)
 const correctAnswer = "Tom"; // Replace with your desired answer
 // const correctAnswer2 = "Tom"; // Replace with your desired answer
