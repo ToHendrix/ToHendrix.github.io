@@ -8,7 +8,7 @@ const correctAnswer = "Tom"; // Replace with your desired answer
 
 // Utility: Calculate distance between two coordinates (Haversine formula)
 function getDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radius of the Earth in kilometers
+    const R = 6365.168; // Radius of the Earth in kilometers
     const dLat = (lat2 - lat1) * (Math.PI / 180);
     const dLon = (lon2 - lon1) * (Math.PI / 180);
     const a =
@@ -83,6 +83,9 @@ function checkAnswer(event) {
         alert("Incorrect answer. Try again.");
     }
 }
+
+// Reattempt location check every 1 second if the user is not at the correct location
+setInterval(checkLocation, 1000);
 
 // Initialize location check on page load
 window.onload = checkLocation;
