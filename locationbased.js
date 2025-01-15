@@ -1,6 +1,6 @@
 // Configuration
 const targetLocation = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house: ,6.0965782
-const allowedRadius = 0.05; // Radius in kilometers (50 meters)
+const allowedRadius = 0.80; // Radius in kilometers (50 meters)
 const correctAnswer = "Tom"; // Replace with your desired answer
 // const correctAnswer2 = "Tom"; // Replace with your desired answer
 // const correctAnswer3 = "Tom"; // Replace with your desired answer
@@ -54,6 +54,11 @@ function checkLocation() {
             (error) => {
                 locationMessage.textContent =
                     "Error retrieving location. Please ensure location services are enabled.";
+            },
+            {
+                enableHighAccuracy: true,  // Request the highest possible accuracy
+                timeout: 10000,            // Set timeout (10 seconds in this example)
+                maximumAge: 0              // Don't use cached position
             }
         );
     } else {
