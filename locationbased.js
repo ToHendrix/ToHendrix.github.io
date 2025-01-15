@@ -1,6 +1,6 @@
 // Configuration
-const targetLocation = { lat: 51.2843343, lon: 6.0965782 }; // Replace with your desired latitude and longitude my house: ,6.0965782
-const allowedRadius = 0.02; // Radius in kilometers (50 meters)
+const targetLocation = { lat: 51.2917504, lon: 6.0981248}; // Replace with your desired latitude and longitude my house: ,6.0965782
+const allowedRadius = 0.05; // Radius in kilometers (50 meters)
 const correctAnswer = "Tom"; // Replace with your desired answer
 // const correctAnswer2 = "Tom"; // Replace with your desired answer
 // const correctAnswer3 = "Tom"; // Replace with your desired answer
@@ -37,6 +37,9 @@ function checkLocation() {
                     targetLocation.lat,
                     targetLocation.lon
                 );
+                console.log("User Latitude: " + userLat);
+                console.log("User Longitude: " + userLon);
+                console.log("User distance: " + distance);
 
                 if (distance <= allowedRadius) {
                     answerField.disabled = false;
