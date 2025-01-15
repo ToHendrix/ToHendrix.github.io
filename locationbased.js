@@ -23,7 +23,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 
 // Check the user's location
 function checkLocation() {
-    const locationMessage = document.getElementByIdj("locationMessage");
+    const locationMessage = document.getElementById("locationMessage");
     const answerField = document.getElementById("answerField");
 
     if (navigator.geolocation) {
