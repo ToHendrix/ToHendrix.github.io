@@ -23,7 +23,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 
 // Check the user's location
 function checkLocation() {
-    const locationMessage = document.getElementById("locationMessage");
+    const locationMessage = document.getElementByIdj("locationMessage");
     const answerField = document.getElementById("answerField");
 
     if (navigator.geolocation) {
@@ -45,7 +45,7 @@ function checkLocation() {
                 } else {
                     answerField.disabled = true;
                     locationMessage.textContent =
-                        'You are not at the correct location. Please move closer. Your current location: Latitude: ${userLat.toFixed(6)}, Longitude: ${userLon.toFixed(6)}';
+                        'You are not at the correct location. Please move closer. Your current location: Latitude:' + userLat + ', Longitude: ' + userLon;
                 }
             },
             (error) => {
