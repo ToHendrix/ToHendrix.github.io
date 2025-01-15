@@ -6,15 +6,14 @@
     <title>Hello Tom</title>
 </head>
 <body>
-    <h1>Welcome to My Website 2</h1>
-    <p id="greeting"></p>
-
-    <script>
-        // This will print "Hello Tom" on the page
-        document.getElementById("greeting").innerText = "Welcome to SitTARD";
-    </script>
-
-    <!-- Link to load the script from location.html -->
-    <script src="locationbased.html"></script>
+    <h1>Location Locked Answer</h1>
+    <p id="locationMessage">Checking your location...</p>
+    <form onsubmit="checkAnswer(event);">
+        <label for="answerField">Enter your answer:</label>
+        <input type="text" id="answerField" disabled required />
+        <button type="submit">Submit</button>
+    </form>
+    <script src="locationChecker.js"></script>
 </body>
+</html>
 </html>
