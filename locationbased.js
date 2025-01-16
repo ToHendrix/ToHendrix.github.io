@@ -1,5 +1,5 @@
 // Configuration
-const targetLocationBV = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationBV = { lat: 51.2843126, lon: 6.0962855}; // Replace with your desired latitude and longitude my house:
 const targetLocationAmberH1 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
 const targetLocationPeterH2 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
 const targetLocationIsaH3 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
