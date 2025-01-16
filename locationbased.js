@@ -1,6 +1,13 @@
 // Configuration
-const targetLocation = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house: ,6.0965782
-const allowedRadius = 0.80; // Radius in kilometers (50 meters)
+const targetLocationBV = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationAmberH1 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationPeterH2 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationIsaH3 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationBasiE1 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationAgnetenE2 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationSanderE3 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+
+const allowedRadius = 0.05; // Radius in kilometers (50 meters)
 const correctAnswer = "Tom"; // Replace with your desired answer
 // const correctAnswer2 = "Tom"; // Replace with your desired answer
 // const correctAnswer3 = "Tom"; // Replace with your desired answer
@@ -48,7 +55,7 @@ function checkLocation() {
                 } else {
                     answerField.disabled = true;
                     locationMessage.textContent =
-                        'You are not at the correct location. Please move closer. Your current location: Latitude:' + userLat + ', Longitude: ' + userLon;
+                        'You are not at the correct location. Please move closer. Your current distance: ' + distance ;
                 }
             },
             (error) => {
