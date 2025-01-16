@@ -9,6 +9,7 @@ const targetLocationSanderE3 = { lat: 51.2917511, lon: 6.0981211}; // Replace wi
 
 const allowedRadius = 0.05; // Radius in kilometers (50 meters)
 const correctAnswer = "Tom"; // Replace with your desired answer
+const correctAnswer2 = "Melvin"
 // const correctAnswer2 = "Tom"; // Replace with your desired answer
 // const correctAnswer3 = "Tom"; // Replace with your desired answer
 // const correctAnswer4 = "Tom"; // Replace with your desired answer
@@ -79,7 +80,7 @@ function checkAnswer(event) {
     event.preventDefault(); // Prevent form submission
     const userAnswer = document.getElementById("answerField").value.trim();
 
-    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase() || userAnswer.toLowerCase() === correctAnswer2.toLowerCase()) {
         window.location.href = "successHobbits1.html"; // Replace with your success page
     }
     // else if (userAnswer.toLowerCase() === correctAnswer2.toLowerCase()) {
