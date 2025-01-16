@@ -41,8 +41,8 @@ function checkLocation() {
                 const distance = getDistance(
                     userLat,
                     userLon,
-                    targetLocation.lat,
-                    targetLocation.lon
+                    targetLocationBV.lat,
+                    targetLocationBV.lon
                 );
                 console.log("User Latitude: " + userLat);
                 console.log("User Longitude: " + userLon);
