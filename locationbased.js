@@ -8,11 +8,12 @@ const targetLocationAgnetenE2 = { lat: 51.2917511, lon: 6.0981211}; // Replace w
 const targetLocationSanderE3 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
 
 const allowedRadius = 0.05; // Radius in kilometers (50 meters)
-const correctAnswer = "Tom"; // Replace with your desired answer
-const correctAnswer2 = "Melvin"
-// const correctAnswer2 = "Tom"; // Replace with your desired answer
-// const correctAnswer3 = "Tom"; // Replace with your desired answer
-// const correctAnswer4 = "Tom"; // Replace with your desired answer
+const correctAnswerAmberH1 = "9"
+const correctAnswerPeterH2 = "Zoetermeer"
+const correctAnswerIsaH3 = "56"
+const correctAnswerBasiE1 = ""
+const correctAnswerAgnetenE2 = ""
+const correctAnswerSanderE3 = ""
 
 // Utility: Calculate distance between two coordinates (Haversine formula)
 function getDistance(lat1, lon1, lat2, lon2) {
@@ -80,18 +81,22 @@ function checkAnswer(event) {
     event.preventDefault(); // Prevent form submission
     const userAnswer = document.getElementById("answerField").value.trim();
 
-    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase() || userAnswer.toLowerCase() === correctAnswer2.toLowerCase()) {
-        window.location.href = "successHobbits1.html"; // Replace with your success page
+
+    if (userAnswer.toLowerCase() === correctAnswerAmberH1.toLowerCase() || userAnswer.toLowerCase() === correctAnswerSanderE3.toLowerCase()) {
+        window.location.href = "successStart.html"; // Replace with your success page
     }
-    // else if (userAnswer.toLowerCase() === correctAnswer2.toLowerCase()) {
-    //     window.location.href = "successHobbits2.html"; // Replace with your success page
-    // }
-    // else if (userAnswer.toLowerCase() === correctAnswer3.toLowerCase()) {
-    //     window.location.href = "successElves1.html"; // Replace with your success page
-    // } 
-    // else if (userAnswer.toLowerCase() === correctAnswer4.toLowerCase()) {
-    //     window.location.href = "successElves2.html"; // Replace with your success page
-    // } 
+    if (userAnswer.toLowerCase() === correctAnswerPeterH2.toLowerCase()) {
+        window.location.href = "successHobbits2.html"; // Replace with your success page
+    }
+    else if (userAnswer.toLowerCase() === correctAnswerIsaH3.toLowerCase()) {
+        window.location.href = "successEnd.html"; // Replace with your success page
+    } 
+    else if (userAnswer.toLowerCase() === correctAnswerBasiE1.toLowerCase()) {
+        window.location.href = "successStart.html"; // Replace with your success page
+    } 
+    else if (userAnswer.toLowerCase() === correctAnswerAgnetenE2.toLowerCase()) {
+        window.location.href = "successElves2.html"; // Replace with your success page
+    }
     else {
         alert("Incorrect answer. Try again.");
     }
