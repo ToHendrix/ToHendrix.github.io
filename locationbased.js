@@ -1,19 +1,19 @@
 // Configuration
 const targetLocationBV = { lat: 51.2843126, lon: 6.0962855}; // Replace with your desired latitude and longitude my house:
-const targetLocationAmberH1 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
-const targetLocationPeterH2 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
-const targetLocationIsaH3 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
-const targetLocationBasiE1 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
-const targetLocationAgnetenE2 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
-const targetLocationSanderE3 = { lat: 51.2917511, lon: 6.0981211}; // Replace with your desired latitude and longitude my house:
+const targetLocationAmberH1 = { lat: 50.99340, lon:  5.855125}; // ambers hofje
+const targetLocationPeterH2 = { lat: 50.99864,  lon: 5.867786}; // st peters church
+const targetLocationIsaH3 = { lat:50.99907, lon: 5.871474 }; // Jardin d'isabelle
+const targetLocationBasiE1 = { lat: 50.99891, lon: 5.870151}; // Replace with your desired latitude and longitude my house:
+const targetLocationAgnetenE2 = { lat: 50.99640, lon: 5.869582 }; // Replace with your desired latitude and longitude my house:
+const targetLocationSanderE3 = { lat: 50.99686,  lon: 5.873886}; // Replace with your desired latitude and longitude my house:
+const targetLocations = [targetLocationBV, targetLocationAmberH1, targetLocationPeterH2, targetLocationIsaH3, targetLocationBasiE1, targetLocationAgnetenE2, targetLocationSanderE3]
 
-const allowedRadius = 0.05; // Radius in kilometers (50 meters)
+const allowedRadius = 0.1; // Radius in kilometers (100 meters)
 const correctAnswerAmberH1 = "9"
 const correctAnswerPeterH2 = "Zoetermeer"
-const correctAnswerIsaH3 = "56"
-const correctAnswerBasiE1 = ""
-const correctAnswerAgnetenE2 = ""
-const correctAnswerSanderE3 = ""
+const correctAnswerIsaH3 = "livingroom, kitchen, hallway, upstairs, bathroom"
+const correctAnswerBasiE1 = "Olesya Turkina"
+const correctAnswerAgnetenE2 = "beerpong is not sippong"
 
 // Utility: Calculate distance between two coordinates (Haversine formula)
 function getDistance(lat1, lon1, lat2, lon2) {
@@ -50,14 +50,22 @@ function checkLocation() {
                 console.log("User Longitude: " + userLon);
                 console.log("User distance: " + distance);
 
-                if (distance <= allowedRadius) {
+                // Check distance from all target locations
+                for (const target of targetLocations) {
+                    const distance = getDistance(userLat, userLon, target.lat, target.lon);
+                    if (distance <= allowedRadius) {
+                        withinRange = true;
+                        break; // Stop checking once a match is found
+                    }
+                }
+                if (withinRange) {
                     answerField.disabled = false;
                     locationMessage.textContent =
                         "You are in the correct location. You can now enter your answer.";
                 } else {
                     answerField.disabled = true;
                     locationMessage.textContent =
-                        'You are not at the correct location. Please move closer. Your current distance: ' + distance ;
+                        'You are not at the correct location. Please move closer. Your current distance is ' + distance *100 + "meters from the target" ;
                 }
             },
             (error) => {
