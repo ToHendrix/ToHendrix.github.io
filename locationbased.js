@@ -49,7 +49,6 @@ function checkLocation() {
                 // Check distance from all target locations
                 for (const target of targetLocations) {
                     const distance = getDistance(userLat, userLon, target.lat, target.lon);
-                    console.log(`Distance to target (${target.lat}, ${target.lon}): ${distance} km`);
 
                     if (distance <= allowedRadius) {
                         withinRange = true; // Set withinRange to true if within any location
