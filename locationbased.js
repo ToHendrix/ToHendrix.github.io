@@ -40,24 +40,23 @@ function checkLocation() {
             (position) => {
                 const userLat = position.coords.latitude;
                 const userLon = position.coords.longitude;
-                const distance = getDistance(
-                    userLat,
-                    userLon,
-                    targetLocationBV.lat,
-                    targetLocationBV.lon
-                );
+
                 console.log("User Latitude: " + userLat);
                 console.log("User Longitude: " + userLon);
-                console.log("User distance: " + distance);
+
+                let withinRange = false; // Initialize withinRange to false
 
                 // Check distance from all target locations
                 for (const target of targetLocations) {
                     const distance = getDistance(userLat, userLon, target.lat, target.lon);
+                    console.log(`Distance to target (${target.lat}, ${target.lon}): ${distance} km`);
+
                     if (distance <= allowedRadius) {
-                        withinRange = true;
+                        withinRange = true; // Set withinRange to true if within any location
                         break; // Stop checking once a match is found
                     }
                 }
+
                 if (withinRange) {
                     answerField.disabled = false;
                     locationMessage.textContent =
@@ -65,7 +64,7 @@ function checkLocation() {
                 } else {
                     answerField.disabled = true;
                     locationMessage.textContent =
-                        'You are not at the correct location. Please move closer. Your current distance is ' + distance *100 + "meters from the target" ;
+                        "You are not at the correct location. Please move closer.";
                 }
             },
             (error) => {
@@ -87,30 +86,22 @@ function checkLocation() {
 // Check the user's answer
 function checkAnswer(event) {
     event.preventDefault(); // Prevent form submission
-    const userAnswer = document.getElementById("answerField").value.trim();
+    const userAnswer = document.getElementById("answerField").value.trim().toLowerCase();
 
-
-    if (userAnswer.toLowerCase() === correctAnswerAmberH1.toLowerCase() || userAnswer.toLowerCase() === correctAnswerSanderE3.toLowerCase()) {
-        window.location.href = "successStart.html"; // Replace with your success page
-    }
-    if (userAnswer.toLowerCase() === correctAnswerPeterH2.toLowerCase()) {
-        window.location.href = "successHobbits2.html"; // Replace with your success page
-    }
-    else if (userAnswer.toLowerCase() === correctAnswerIsaH3.toLowerCase()) {
-        window.location.href = "successEnd.html"; // Replace with your success page
-    } 
-    else if (userAnswer.toLowerCase() === correctAnswerBasiE1.toLowerCase()) {
-        window.location.href = "successStart.html"; // Replace with your success page
-    } 
-    else if (userAnswer.toLowerCase() === correctAnswerAgnetenE2.toLowerCase()) {
-        window.location.href = "successElves2.html"; // Replace with your success page
-    }
-    else {
-        alert("Incorrect answer. Try again.");
+    if (userAnswer === correctAnswerAmberH1.toLowerCase() || userAnswer === correctAnswerBasiE1.toLowerCase()) {
+        window.location.href = "successStart.html"; // Redirect to successStart.html
+    } else if (userAnswer === correctAnswerPeterH2.toLowerCase()) {
+        window.location.href = "successHobbits2.html"; // Redirect to successHobbits2.html
+    } else if (userAnswer === correctAnswerIsaH3.toLowerCase()) {
+        window.location.href = "successEnd.html"; // Redirect to successEnd.html
+    } else if (userAnswer === correctAnswerAgnetenE2.toLowerCase()) {
+        window.location.href = "successElves2.html"; // Redirect to successElves2.html
+    } else {
+        alert("Incorrect answer. Try again."); // Alert for incorrect answers
     }
 }
 
-// Reattempt location check every 1 second if the user is not at the correct location
+// Reattempt location check every 1 second
 setInterval(checkLocation, 1000);
 
 // Initialize location check on page load
